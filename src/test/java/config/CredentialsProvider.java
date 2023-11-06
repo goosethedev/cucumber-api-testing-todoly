@@ -14,8 +14,8 @@ public class CredentialsProvider {
     private final String user;
     private final String password;
 
-    public CredentialsProvider() throws FileNotFoundException {
-        String filePath = "src/test/resources/json/credentials.json";
+    public CredentialsProvider(String filename) throws FileNotFoundException {
+        String filePath = "src/test/resources/json/" + filename;
         try {
             JSONObject jsonObj = (JSONObject) new JSONParser().parse(new FileReader(filePath));
             host = (String) jsonObj.get("host");

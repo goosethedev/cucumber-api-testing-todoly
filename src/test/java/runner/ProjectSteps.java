@@ -18,18 +18,20 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class ProjectSteps {
 
-    CredentialsProvider cp = new CredentialsProvider();
+    CredentialsProvider cp;
     Response response;
-    RequestInfo requestInfo = new RequestInfo();
-    Map<String,String> variables = new HashMap<>();
+    RequestInfo requestInfo;
+    Map<String,String> variables;
 
     public ProjectSteps() throws FileNotFoundException {
+        cp = new CredentialsProvider("credentialsProjectTests.json");
+        requestInfo =  new RequestInfo();
+        variables = new HashMap<>();
     }
 
     @Given("an user API token provided by Todo.ly")
     public void setTokenHeader() {
         String tokenRequestURL = cp.getHost() + "/api/authentication/token.json";
-
         String credentials = Base64.getEncoder()
                 .encodeToString((cp.getUser() + ":" + cp.getPassword()).getBytes());
         requestInfo.setUrl(tokenRequestURL)
