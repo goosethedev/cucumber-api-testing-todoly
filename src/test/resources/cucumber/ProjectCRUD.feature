@@ -1,6 +1,7 @@
-Feature: Project Creation, Update and Delete
-  Scenario: As an user, I want to create, update and delete a project
-    so I can better manage my to-dos.
+Feature: As an user, I want to create, update and delete a project
+  so I can better manage my to-dos.
+
+  Scenario: Project creation, update and deletion in order
 
     Given an user API token provided by Todo.ly
 
